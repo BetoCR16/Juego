@@ -7,8 +7,9 @@ from tkinter import *
 from tkinter import messagebox
 
 raiz=Tk()
+raiz.config(width=300,height=400, bg="lightblue")
+#-------------------------------------------------------- Ventanas emergentes -------------------------------
 varOption=IntVar()
-
 while play == True:
 
     def jugar():
@@ -49,17 +50,20 @@ while play == True:
         else:
             raiz.destroy()
             
-
-    instruccion=Label(raiz, text="Elige piedra, papel o tijera")
+#------------------------------- Interfaz ---------------------------------------------------
+    instruccion=Label(raiz, text="Elige piedra, papel o tijera", padx=10, pady=10)
     instruccion.pack()
 
-    papel=Radiobutton(raiz, text="Papel", variable=varOption, value=1,  command=jugar)
+    papel=Radiobutton(raiz, text="Papel", variable=varOption, value=1,  command=jugar, pady=5)
+    papel.config(bg="lightblue")
     papel.pack()
 
-    piedra=Radiobutton(raiz, text="Piedra", variable=varOption, value=2, command=jugar)
+    piedra=Radiobutton(raiz, text="Piedra", variable=varOption, value=2, command=jugar,pady=5)
+    piedra.config(bg="lightblue")
     piedra.pack()
 
-    tijera=Radiobutton(raiz, text="Tijera", variable=varOption, value=3, command=jugar)
+    tijera=Radiobutton(raiz, text="Tijera", variable=varOption, value=3, command=jugar,pady=5)
+    tijera.config(bg="lightblue")
     tijera.pack()
     
     raiz.mainloop()
