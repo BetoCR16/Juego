@@ -8,7 +8,20 @@ from tkinter import messagebox
 
 raiz=Tk()
 raiz.config(bg="lightblue")
-raiz.geometry("250x150")
+raiz.geometry("250x250")
+
+def envio():
+    messagebox.showinfo("Bienvenido", "Bienvenido al juego, " + nombre.get())
+
+instruccion=Label(raiz, text="Escribe tu nombre",pady=8, padx=8)
+instruccion.config(bg="lightblue")
+instruccion.pack()
+
+nombre=Entry(raiz)
+nombre.pack()
+
+enviar=Button(raiz, text="Enviar",command=envio)
+enviar.pack()
 #-------------------------------------------------------- Ventanas emergentes -------------------------------
 varOption=IntVar()
 while play == True:
