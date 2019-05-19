@@ -55,5 +55,4 @@ while play == True:
     tijera=Radiobutton(raiz, text="Tijera", variable=varOption, value=3, command=imprimir)
     tijera.pack()
 
-
     raiz.mainloop()
