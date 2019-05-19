@@ -7,7 +7,8 @@ from tkinter import *
 from tkinter import messagebox
 
 raiz=Tk()
-raiz.config(width=300,height=400, bg="lightblue")
+raiz.config(bg="lightblue")
+raiz.geometry("250x150")
 #-------------------------------------------------------- Ventanas emergentes -------------------------------
 varOption=IntVar()
 while play == True:
@@ -51,7 +52,10 @@ while play == True:
             raiz.destroy()
             
 #------------------------------- Interfaz ---------------------------------------------------
+    
+
     instruccion=Label(raiz, text="Elige piedra, papel o tijera", padx=10, pady=10)
+    instruccion.config(bg="lightblue")
     instruccion.pack()
 
     papel=Radiobutton(raiz, text="Papel", variable=varOption, value=1,  command=jugar, pady=5)
