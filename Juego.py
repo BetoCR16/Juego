@@ -1,5 +1,6 @@
 #-----------------------------------------Juego----------------------------------------------
 import random 
+import time
 options = ['1', '2', '3']
 play=True
 #----------------------------------- Interfaz Grafica --------------------------
@@ -8,14 +9,19 @@ from tkinter import messagebox
 
 raiz=Tk()
 raiz.config(bg="lightblue")
-raiz.geometry("250x250")
+raiz.geometry("220x80")
 
 def envio():
-    messagebox.showinfo("Bienvenido", "Bienvenido al juego, " + nombre.get())
+    
+    instruccioninicio.pack_forget()
+    raiz.geometry("200x140")
+    nombre.pack_forget()
+    enviar.pack_forget()
+    
 
-instruccion=Label(raiz, text="Escribe tu nombre",pady=8, padx=8)
-instruccion.config(bg="lightblue")
-instruccion.pack()
+instruccioninicio=Label(raiz, text="Escribe tu nombre",pady=8, padx=8)
+instruccioninicio.config(bg="lightblue")
+instruccioninicio.pack()
 
 nombre=Entry(raiz)
 nombre.pack()
@@ -30,37 +36,49 @@ while play == True:
         pc = random.choice(options)
         if varOption.get()==1:
             if pc == '1':
-                messagebox.showinfo('Resultado',"Ambos sacamos papel. EMPATE")
+                raiz.withdraw()
+                messagebox.showinfo('Resultado',"Ambos sacamos papel. EMPATE " +nombre.get())
                 
             elif pc == '3':
-                messagebox.showinfo('Resultado',"Yo saque tijeras. PIERDES")
+                raiz.withdraw()
+                messagebox.showinfo('Resultado',"Yo saque tijeras. PIERDES " +nombre.get()+". :(")
                 
             elif pc == '2':
-                messagebox.showinfo("Eleccion", "Yo saque piedra. Papel le gana a piedra. GANASTE")
+                raiz.withdraw()
+                messagebox.showinfo("Resultado", "Yo saque piedra. Papel le gana a piedra. GANASTE " +nombre.get()+"!")
         
         elif varOption.get()==2:
             if pc == '1':
-                messagebox.showinfo('Resultado',"Saque papel. PIERDES")
+                raiz.withdraw()
+                messagebox.showinfo('Resultado',"Saque papel. PIERDES " +nombre.get()+" :(")
                 
             elif pc == '3':
-                messagebox.showinfo('Resultado',"Ambos sacamos piedra. EMPATE")
+                raiz.withdraw()
+                messagebox.showinfo('Resultado',"Ambos sacamos piedra. EMPATE " +nombre.get())
                 
             elif pc == '2':
-                messagebox.showinfo("Resultado", "Yo saque tijeras. GANASTE")
+                raiz.withdraw()
+                messagebox.showinfo("Resultado", "Yo saque tijeras. GANASTE " +nombre.get()+"!")
 
         elif varOption.get()==3:
             if pc == '1':
-                messagebox.showinfo('Resultado',"Saque papel. GANASTE")
-                
+                raiz.withdraw()
+                messagebox.showinfo('Resultado',"Saque papel. GANASTE " +nombre.get()+"!")
+                           
             elif pc == '3':
-                messagebox.showinfo('Resultado',"Ambos sacamos tijera. EMPATE")
+                raiz.withdraw()
+                messagebox.showinfo('Resultado',"Ambos sacamos tijera. EMPATE " +nombre.get())
+                
                 
             elif pc == '2':
-                messagebox.showinfo("Resultado", "Yo saque piedra. PIERDES")
-            
+                raiz.withdraw()
+                messagebox.showinfo("Resultado", "Yo saque piedra. PIERDES " +nombre.get()+" :(")
+                
+                      
         valor=messagebox.askquestion("Otra vez", "¿Quieres volver a jugar?")
         if valor == "yes": 
             play = True
+            raiz.deiconify()
         else:
             raiz.destroy()
             
@@ -84,4 +102,3 @@ while play == True:
     tijera.pack()
     
     raiz.mainloop()
-
