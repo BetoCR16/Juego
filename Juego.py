@@ -1,6 +1,5 @@
 #-----------------------------------------Juego----------------------------------------------
 import random 
-import time
 options = ['1', '2', '3']
 play=True
 #----------------------------------- Interfaz Grafica --------------------------
@@ -8,6 +7,7 @@ from tkinter import *
 from tkinter import messagebox
 
 raiz=Tk()
+raiz.title("Juego")
 raiz.config(bg="lightblue")
 raiz.geometry("220x80")
 
@@ -81,6 +81,7 @@ while play == True:
             play = True
             raiz.deiconify()
         else:
+            messagebox.showinfo("Adiós","Muchas gracias por jugar " + nombre.get())
             raiz.destroy()
             
 #------------------------------- Interfaz ---------------------------------------------------
